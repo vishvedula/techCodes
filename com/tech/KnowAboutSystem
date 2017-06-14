@@ -1,0 +1,9 @@
+Following commands in Windows talks about the 
+1) OS
+2) Architecture of the OS
+
+wmic os get caption --> Microsoft Windows 10 Pro
+
+
+wmic os get osarchitecture --> OSArchitecture
+                               64-bit
