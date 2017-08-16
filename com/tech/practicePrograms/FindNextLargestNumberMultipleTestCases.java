@@ -35,27 +35,21 @@ public class FindNextLargestNumber {
 			}
 			int length = a.length;
 			List<Integer> list = new ArrayList<Integer>();
-			StringBuilder str = new StringBuilder();
 			for (int i = 0; i < length - 1; i++) {
 				boolean flag = true;
 				for (int j = i + 1; j < length; j++) {
 					if (a[j] > a[i]) {
 						list.add(a[j]);
-						str.append(a[j]);
-						str.append(" ");
 						flag = false;
 						break;
 					}
 				}
 				if (flag) {
 					list.add(-1);
-					str.append(-1);
-					str.append(" ");
 				}
 			}
 			list.add(-1);
-			str.append(-1);
-			System.out.println(str);
+			System.out.println(list);
 		}
 	}
 }
