@@ -69,7 +69,7 @@ public class Player1Player2 {
 
 	}
 	
-	private static String printWinner(char[] a){
+		private static String printWinner(char[] a){
 		
 		int iteration = 0; // To use "iteration" count for figuring if Player1 wins of Player2 wins
 		int aLength = a.length;
@@ -83,14 +83,12 @@ public class Player1Player2 {
 				++iteration;
 				for(int j=i+1; j<size; j++){
 					if(list.get(i)==list.get(j)){
-						list.remove(i);
-						list.remove(j-1);
+						list.remove(j);
 						count++;
+						size = list.size();
 					}
 				}
-				if(count ==0){
-					list.remove(i);
-				}
+				list.remove(i);
 				size = list.size();	
 			}
 			
