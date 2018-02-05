@@ -100,5 +100,46 @@ public class Player1Player2 {
 		
 		return Player1;
 	}
-
 }
+  //-------------------------------------------------------Below code for better Time complexity----------------------
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class LenskartSstring {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String str = scan.next();
+		char[] a = str.toCharArray();
+		lenskartString(a);
+
+	}
+
+	private static String lenskartString(char[] a){
+		List<Character> list = new ArrayList<>();
+		int count = 0;
+		for(int i=0; i < a.length; i++){
+			list.add(a[i]);
+		}
+		System.out.println(list);
+		Set<Character> set = new HashSet<Character>(list);
+		System.out.println(set);
+		
+		 count = set.size();
+		if(count % 2 ==0){
+			System.out.println("Player2");
+		} else {
+			System.out.println("Player1");
+		}
+		return "Player1";
+	}
+	
+}
+
