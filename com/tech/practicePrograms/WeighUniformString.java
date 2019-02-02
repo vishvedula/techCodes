@@ -48,6 +48,7 @@ import java.util.TreeSet;
 				if (charArray[i] == charArray[j]) {
 					sum = sum + (int) map.get(charArray[j]);
 					set.add(sum);
+					i=j;
 				} else {
 					break;
 				}
