@@ -32,6 +32,33 @@ public class ReverseLinkedList {
      }
      node = prevNode;
      return node;
+	 
+// Using ArrayList , simple logic
+    	
+        /*Node currentNode = node;
+    	List list = new ArrayList<Integer>();
+    	while(currentNode!=null){
+    		list.add(currentNode.data);
+    		currentNode = currentNode.next;
+    	}
+    	
+    	Collections.reverse(list);
+    	node = null;
+    	
+    	// inserting data from list to head Node
+    	for(int i=0; i< list.size(); i++){
+    		if(node == null){
+    			node = new Node((int)list.get(i));
+    		} else {
+    			Node dup = node;
+    			while(dup.next!=null){
+    				dup = dup.next;
+    			}
+    			 dup.next = new Node((int)list.get(i));
+    		}
+    	}
+    	
+    	return node;*/
  }
 
  // prints content of double linked list
