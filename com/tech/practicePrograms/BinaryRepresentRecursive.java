@@ -24,7 +24,7 @@ Output:
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class BinaryRepresent {
+public class BinaryRepresentRecursive {
 	  static int c =0;
 
 	static void bin(int n) 
