@@ -1,5 +1,5 @@
 // Java program to print reverse of a linked list
-class ReverseLinkedListPart2
+class ReversingLinkedListRecursive
 {
     Node head;  // head of list
  
