@@ -61,7 +61,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class RemoveFriends {
-// private static int count =0;
 	/**
 	 * @param args
 	 * @throws IOException 
