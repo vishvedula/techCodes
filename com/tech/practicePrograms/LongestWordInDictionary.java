@@ -41,7 +41,8 @@ public class LongestWordInDictionary {
         for (String word: words){
             hashSet.add(word); // add unique words
             if(word.length()==1 || hashSet.contains(word.substring(0,word.length()-1))){
-            	if(result.length()<word.length()){
+            	if(result.length()<word.length()){ // this has 2 testcases, if we want lexicographical order, then we should have
+            					// only result.length()< word.length() , else have result.length()<=word.length()
             	
                 result = word;
             	}
