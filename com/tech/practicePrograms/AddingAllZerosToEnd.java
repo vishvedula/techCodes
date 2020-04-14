@@ -8,7 +8,36 @@ import java.util.List;
 
 public class ArraySortingAllZeros {
 
-	public static void main(String args[]) {
+	public static void main(String args[]){
+		
+		// Using time complexity O(N) and Space complexity O(1)
+		int[] array = { 1, 0, 0, 2, 1, 0, 0,45, 9, 5}; //1,2,1,45,9,5,0,0,0,0
+		int index = 0;
+		int n = array.length;
+		for(int i=0; i<n;i++){
+			if(array[i]!=0){
+				array[index] = array[i];
+				index++;
+			}
+		}
+
+		while(index<n){
+			array[index]=0;
+			index++;
+		}
+
+		for(int i=0; i<n;i++){
+			System.out.print(" "+array[i]);
+
+
+	}
+	}
+
+
+
+	// Used List, which would consume Heap space.
+	// We can do it using the array itself.
+	/*public static void main(String args[]) {
 		int[] array = { 1, 0, 0, 2, 1, 0, 0,45, 9, 5};
 
 		List<Integer> list = new ArrayList<Integer>();
@@ -34,6 +63,6 @@ public class ArraySortingAllZeros {
 		list.addAll(tempList);
 		return list;
 
-	}
+	}*/
 
 }
