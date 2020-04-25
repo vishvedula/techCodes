@@ -25,6 +25,7 @@ public class MaxMinSum {
                                           //[4,6,7,9], [6,7,9,10]
         int k=4;
         printMinMaxSum(a, k);
+        
     }
 
     static int printMinMaxSum(int arr[], int k){
