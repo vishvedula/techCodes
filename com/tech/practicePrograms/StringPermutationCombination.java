@@ -49,29 +49,28 @@ Permutations for ABC are:
 
 import java.util.*;
 public class StringPermutations {
-   private  static  int  count=0;
+                    private  static  int  count=0;
 		    public static Set<String> permutationFinder(String str) {
 		        Set<String> perm = new HashSet<String>();
 		        //Handling error scenarios
 		        if (str == null) {
 		            return null;
-		        } else if (str.length() == 0) {
+		        } else if (str.length() == 0) {  // Recursion BASE Condition
 		            perm.add("");
 		            return perm;
 		        }
 		        char initial = str.charAt(0); // first character
 		        String rem = str.substring(1); // Full string without first character
 		        Set<String> words = permutationFinder(rem);
-              
-             		 ++count;
-		      System.out.println("Recursive count-->"+count);
-		      System.out.println("The set of words that are returned from previous recursion -->"+words);
+                 	 ++count;
+		        System.out.println("Recursive count-->"+count);
+		        System.out.println("The set of words that are returned from previous recursion -->"+words);
 		        for (String strNew : words) {
 		            for (int i = 0;i<=strNew.length();i++){
 		                perm.add(charInsert(strNew, initial, i));
 		            }
 		        }
-              System.out.println("The final list of words that are computed -->"+Arrays.asList(perm));
+                      System.out.println("The final list of words that are computed -->"+Arrays.asList(perm));
 		        return perm;
 		    }
 		 
