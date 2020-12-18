@@ -1,17 +1,20 @@
-// Class to count full nodes of Tree 
+/**
+ Recursive Example to count number of Nodes of a given Binary Tree.
+*/
 
-class BinaryTree1 
+public class BinaryTree1 
 {
- 
+   static int countNodes=0;
     Node root;
  
     /* Function to get the count of full Nodes in
     a binary tree*/
     int countNodes(Node root2) 
     {
-    
-    if( root2 == null ){
+      if( root2 == null ){
         return 0;
+    } else{
+       System.out.println("Number of nodes: "+(++countNodes));
     }
     
     if( root2.left == null && root2.right == null ){
@@ -22,6 +25,16 @@ class BinaryTree1
     // as well as themselves
     return countNodes( root2.left ) + countNodes( root2.right ) + 1;
     }
+   
+   static class Node{
+      int data;
+      Node left, right;
+      
+      Node(int data){
+       this.data = data;  
+         left = right = null;
+      }
+   }
  
     public static void main(String args[]) 
     {
