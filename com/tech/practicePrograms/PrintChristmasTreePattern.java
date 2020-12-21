@@ -6,6 +6,11 @@ print following - 180 degree rotation
   * * * * 
   
   If we leverage the same code, and print "* ", * with space, then we would get a Christmas Tree :)
+        *
+      *   * 
+    *   *   * 
+  *   *   *    *
+  
 */
 
 public class PrintChristmasTreePattern {
