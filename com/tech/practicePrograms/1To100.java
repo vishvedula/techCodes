@@ -24,5 +24,12 @@ public class PrintingWithoutOperators {
 	    array[index] = array[index-1]+1;
 	    System.out.println(array[index]);
 	    printToArrayLimit(array, index+1);
-	}
+		
+	/* easy approach would be as below:
+	a[count] = count++;
+        System.out.print(a[count-1]+"\n");
+        print1To100(a, count);*/
+      
+   
+    }
 }
