@@ -1,5 +1,5 @@
 /*
-A facebook interview quesiton, where user would be provided with a number ex: 12
+A facebook interview question, where user would be provided with a number ex: 12
 
 output should be the String representation of the same.
 
