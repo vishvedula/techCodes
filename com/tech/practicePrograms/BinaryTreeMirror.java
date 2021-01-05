@@ -43,7 +43,11 @@ public class BinaryTreeMirror {
          return true; // since both are null
          
       }
-      
+       //null check code to be placed here, to make sure return false, if the depth are not same
+      if(root1 ==null || root2==null){
+         return false;
+      }
+          
       if(root1.data != root2.data){
          return false;
       }
