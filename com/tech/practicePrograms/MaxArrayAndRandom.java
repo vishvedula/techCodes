@@ -1,9 +1,12 @@
 /*
 FaceBook interview question
 
-To print the max element and , get its indexes from the array, 
+Given an array of integers. 
+We have to find the max element of the array, which is at multiple places in the array and return any one of the "indices" randomly.
 
-then print any random index by using Random class.
+So we need to modify the existing array , with the "Indexes" of the maximum value.
+
+In this case 5 which is max : we need to have the array modified to [3,5,8]
 
 */
 
