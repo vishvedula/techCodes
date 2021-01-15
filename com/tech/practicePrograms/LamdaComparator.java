@@ -25,7 +25,7 @@ public class LambdaComparator{
         
         // Sort the list based on the name
         System.out.println("Java 7 convention to Sort the list based on the Name");
-         Collections.sort(list, new Comparator<Person>() {
+         Collections.sort(list, new Comparator<Person>() { // Using ANONYMOUS class 
             public int compare(Person p1, Person p2){
                 return p1.getName().compareTo(p2.getName());
             }
@@ -73,9 +73,6 @@ public class LambdaComparator{
         }
         
         System.out.println();
-        
-        
-        
         
     }
 }
