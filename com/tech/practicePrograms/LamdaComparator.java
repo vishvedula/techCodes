@@ -2,6 +2,10 @@
 
 Java 7 and Java 8 conventions of sorting using Comparators, for a Entity Object
 
+Lambda and clean way of sorting using Java 7 and 8 , Comparator example !
+- Used Anonymous class for java 7
+- Lambda works on @functional Interfaces (having only 1 abstract method)
+- Since Comparator has only 1 method , hence it can be considered as a Functional Interface.
 
 */
 
