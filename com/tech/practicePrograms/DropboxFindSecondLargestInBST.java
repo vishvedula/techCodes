@@ -1,5 +1,5 @@
 /*
-Quora's question of finding the 2nd largest element from a BST
+Dropbox's question of finding the 2nd largest element from a BST
 
 Used java.util.Queue and List to find the 2nd largest element.
 
