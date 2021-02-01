@@ -1,5 +1,5 @@
 /*Java program to find number of subsets for a given number
- Logic is to find the Power Set and then compute each set's 
+ Logic is to find the PowerSet and then compute each set's 
 sum to the given number 
 
 Ex:  int[] set = {1,4,7,10}; and given n= 10, then we should calculate all the sets as following and compare their sum with 10
