@@ -6,7 +6,7 @@ Used Set to remove duplicates, and ran 2 anonymous Threads :) !!
 */
 
 import java.util.*;
-public class MorgantStanleyThreads extends Thread{
+public class MorganStanleyThreads extends Thread{
     private static transient Set<Integer> hashSet = new HashSet<Integer>();
      public static void main(String []args){
         System.out.println("Hello World");
