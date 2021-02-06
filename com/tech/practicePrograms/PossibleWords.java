@@ -31,50 +31,44 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class PossibleWords{
-	public static void main(String args[]){
-		possibleWords();
-	}
 
-	private static List<String> possibleWords(){
-		List<String> list = new ArrayList<String>();
-		Map<Integer,String> map = new HashMap<Integer,String>();
-		map.put(2,"abc");
-		map.put(3,"def");
-		map.put(4,"ghi");
-		map.put(5,"jkl");
-		map.put(6,"mno");
-		map.put(7,"pqr");
-		map.put(8,"stu");
-		map.put(9,"vwx");
-		map.put(0, "yz");
-
-		Scanner scan = new Scanner(System.in);
-		int[] input = new int[scan.nextInt()];
-		for(int i =0; i < input.length; i++){
-			input[i] = scan.nextInt(); // {2,3,4};
-		}
-		
-
-		for(int i=0;i<map.get(input[0]).length(); i++){
-			StringBuilder strA= new StringBuilder();
-			//strA.append(map.get(input[0]).charAt(i));
-			for(int j=0; j<map.get(input[1]).length(); j++){
-				strA = new StringBuilder();
-				strA.append(map.get(input[0]).charAt(i));
-				StringBuilder strB = new StringBuilder();
-				strB.append(map.get(input[1]).charAt(j));
-				strA.append(strB);
-				for(int k=0; k < map.get(input[2]).length(); k++){
-					StringBuilder finalStr = new StringBuilder();
-					StringBuilder strC = new StringBuilder();
-					strC.append(map.get(input[2]).charAt(k));
-					finalStr.append(strA).append(strC);
-					list.add(finalStr.toString());
-				}
-			}
-		}
-		System.out.println(list);
-		return list;
-
-	}
+   public static void main(String args[]){
+      System.out.println(letterCombinations("24"));
+   }
+    public  static List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<String>();
+        
+        if(digits == null || digits.length() == 0) {
+            return result;
+        }
+        
+        String[] mapping = {
+            "0",
+            "1",
+            "abc",
+            "def",
+            "ghi",
+            "jkl",
+            "mno",
+            "pqrs",
+            "tuv",
+            "wxyz"
+        };
+        
+        letterCombinationsRecursive(result, digits, "", 0, mapping);
+        
+        return result;
+    }
+    
+    public static void letterCombinationsRecursive(List<String> result, String digits, String current, int index, String[] mapping) {
+        if(index == digits.length()) {
+            result.add(current);
+            return;
+        }
+        
+        String letters = mapping[digits.charAt(index) - '0'];
+        for(int i = 0; i < letters.length(); i++) {
+            letterCombinationsRecursive(result, digits, current + letters.charAt(i), index + 1, mapping);
+        }
+    }
 }
