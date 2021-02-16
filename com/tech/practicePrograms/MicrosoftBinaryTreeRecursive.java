@@ -13,7 +13,6 @@ For example, given the following tree:
 You should return 45, as it is (3 + 2) * (4 + 5).
 
 */
-import java.util.Queue;
 import java.util.*;
 public class MicrosoftBinaryTreeRecursive {
     static Node root = null;
@@ -28,9 +27,7 @@ public class MicrosoftBinaryTreeRecursive {
        root.right.left = new Node("4");
        root.right.right = new Node("5");
        
-      finalOperand = root.data;
-      
-      System.out.println("Output is :"+findValue(root));
+     System.out.println("Output is :"+findValue(root));
       
    }
     
