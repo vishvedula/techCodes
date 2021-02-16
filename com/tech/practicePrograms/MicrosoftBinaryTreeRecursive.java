@@ -17,11 +17,6 @@ import java.util.Queue;
 import java.util.*;
 public class MicrosoftBinaryTreeRecursive {
     static Node root = null;
-    static Queue<Node> queue = new LinkedList<Node>();
-    static List<Integer> list = new ArrayList<>();
-   static String finalOperand = " ";
-   static int firstResult =0 , secondResult =0;
-   static int result = 0;
    
    public static void main(String[] args) {
        
@@ -38,8 +33,7 @@ public class MicrosoftBinaryTreeRecursive {
       System.out.println("Output is :"+findValue(root));
       
    }
-   
-   
+    
    static int findValue(Node root){
     
       if(root.data.equals("+")){
