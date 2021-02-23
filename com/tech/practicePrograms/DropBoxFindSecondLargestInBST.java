@@ -1,33 +1,33 @@
-
-
 /*
 Dropbox's question of finding the 2nd largest element from a BST
+
 Used java.util.Queue and List to find the 2nd largest element.
 
-Without using List :)
 */
 
 
 import java.util.Queue;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
-public class DropBoxFindSecondLargestInBST {
+public class QuoraFindSecondLargestInBST {
    public static void main(String[] args) {
     
       /*
          1
         /  \
-       6    61
+       2    4
       / \  / \
-     3  19 60 9 
+     3  19 6  9 
          \   /
-         54 59
+         11 8
      */
           
       Node root = new Node(1);
       
-      root.left = new Node(6);
+      root.left = new Node(2);
       
-      root.right = new Node(61);
+      root.right = new Node(4);
       
       root.left.left = new Node(3);
       
@@ -37,9 +37,9 @@ public class DropBoxFindSecondLargestInBST {
       
       root.right.right = new Node(9);
       
-      root.right.right.left = new Node(59);
+      root.right.right.left = new Node(23);
       
-      root.left.right.right = new Node(54);
+      root.left.right.right = new Node(20);
       
       
       
@@ -49,47 +49,33 @@ public class DropBoxFindSecondLargestInBST {
    static int findSecondLargest(Node root){
       
        Queue<Node> queue = new LinkedList<Node>();
-      
-      int firstMax =root.data;
-      int prevFirstMax = root.data;
-      
+       List<Integer> list = new ArrayList<Integer>();
       
        queue.add(root);
        Node currentNode ;
        
+       list.add(root.data);
         
        while(queue.size()>0){
            currentNode = queue.remove();
            if(currentNode.left!=null){
                queue.add(currentNode.left);
-              
-              if(currentNode.left.data > firstMax){
-                 prevFirstMax = firstMax;
-                 firstMax = currentNode.left.data;
-              } else if (currentNode.left.data > prevFirstMax){
-                 prevFirstMax = currentNode.left.data;
-              }
-              
+               list.add(currentNode.left.data);
                
            }
            
            if(currentNode.right!=null){
                queue.add(currentNode.right);
-              
-              if(currentNode.right.data > firstMax){
-                 prevFirstMax = firstMax;
-                 firstMax = currentNode.right.data;
-              } else if (currentNode.right.data > prevFirstMax){
-                 prevFirstMax = currentNode.right.data;
-              }
-              
+               list.add(currentNode.right.data);
                }
                
            }
           
-      System.out.println(prevFirstMax);
+      Collections.sort(list); // sort in ascneding order
+      int size = list.size();
+      System.out.println(list);
       
-      return prevFirstMax;
+      return list.get(size-2);
            
     }
      
@@ -109,5 +95,3 @@ class Node{
    }
    
 }
-
- 
