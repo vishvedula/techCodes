@@ -18,7 +18,7 @@ Note that the empty list or array is also a valid sublist/subarray.
  *
  */
 
-	public class MaxSubarraySum
+	public class KadanesMaxSubarraySum
 	{
 	    public static void main (String[] args)
 	    {
