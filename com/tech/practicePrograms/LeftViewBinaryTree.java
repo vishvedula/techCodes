@@ -3,41 +3,42 @@
 
 Java code to print the Left view of a Binary Tree
 
-          1
+         1
         /  \
        2    3
         \  / \
          7 4  5
-            \
-            6
+         /  \
+         9   6
+              \
+               8
 
-         left view --> 1,2,7
-
+         left view --> 1,2,7,9,8
    
-         1  --> 0th level
+         1  --> 1st level
         /  \
-       2    3 --> 1st level
+       2    3 --> 2nd level
         \  / \
-         7 4  5 --> 2nd level
+         7 4  5 --> 3rd level
          /   \
-         9   6  --> 3rd level
+         9   6  --> 4th level
         / \  /
-      10  11 13 --> 4th level
+      10  11 8 --> 5th level
           /   \
-         12    14--> 5th level
-           \    /
-            18  15 --> 6th level   
-                /
-                19
+         12    14--> 6th level
+           \    / \
+            18  15 20--> 7th level   
+            /    / \
+          22    19 21--> 8th level
         
-          left view --> 1,2,7,9,10,12,18,19
+          left view --> 1, 2, 7, 9, 10, 12, 18, 22
 
 */
 import java.util.LinkedList;
 import java.util.*;
 public class BinaryTreeLeftView {
 
-   public static int level =0;
+   public static int level = 1;
 
    public static Map<Integer, Integer> map = new HashMap<Integer,Integer>();
 
@@ -48,38 +49,9 @@ public class BinaryTreeLeftView {
    public static Set<Integer> set = new HashSet<Integer>();
 
    public static transient int levelLeft =0;
+   public static transient int levelRight =0;
+
    public static void main(String[] args) {
-/*
-         1
-        /  \
-       2    3
-        \  / \
-         7 4  5
-            \
-            6
-
-         left view --> 1,2,7
-
-   
-         1  --> 0th level
-        /  \
-       2    3 --> 1st level
-        \  / \
-         7 4  5 --> 2nd level
-         /   \
-         9   6  --> 3rd level
-        / \  /
-      10  11 13 --> 4th level
-          /   \
-         12    14--> 5th level
-           \    /
-            18  15 --> 6th level   
-                /
-                19
-        
-          left view --> 1,2,7,9,10,12,18,19
-
-   */
 
       Node root = new Node(1);
       root.left = new Node(2);
@@ -89,10 +61,17 @@ public class BinaryTreeLeftView {
       root.left.right.left.right = new Node(11);
       root.left.right.left.right.left  = new Node(12);
       root.left.right.left.right.left.right  = new Node(18);
+      root.left.right.left.right.left.right.left  = new Node(22);
       root.right = new Node(3);
       root.right.left = new Node(4);
       root.right.right = new Node(5);
       root.right.left.right= new Node(6);
+      root.right.left.right.right = new Node(8);
+      root.right.left.right.right.right = new Node(14);
+      root.right.left.right.right.right.right = new Node(20);
+      root.right.left.right.right.right.left = new Node(15);
+      root.right.left.right.right.right.left.right = new Node(21);
+      root.right.left.right.right.right.left.left = new Node(19);
      
       findLeftView(root);
      
@@ -129,8 +108,11 @@ public class BinaryTreeLeftView {
           }
 
           if(current.right != null){
-             current = root;
-            //traverseRightSubTree(current, levelLeft, map);
+             current = root.right;
+             levelRight = 2;
+             map.put(current.data,levelRight);
+             //q.add(current);
+            traverseRightSubTree(current, levelRight, map);
           }
 
       }
@@ -140,22 +122,6 @@ public class BinaryTreeLeftView {
      
    }
 
-   /*
-        
-         1  --> 0th level
-        /  \
-       2    3 --> 1st level
-        \  / \
-         7 4  5 --> 2nd level
-         /   \
-         9   6  --> 3rd level
-        / \  /
-      10  11 13 --> 4th level
-          /   \
-         12    14--> 5th level
-               /
-               15 --> 6th level
-   */
    
 
    private static void  traverseLeftSubTree(Node current , int level, Map<Integer,Integer> map){
@@ -191,56 +157,39 @@ public class BinaryTreeLeftView {
       }
    }
 
-/*
-         1  --> 0th level
-        /  \
-       2    3 --> 1st level
-        \  / \
-         7 4  5 --> 2nd level
-         /   \
-         9   6  --> 3rd level
-        / \  /
-      10  11 13 --> 4th level
-          /   \
-         12    14--> 5th level
-               /
-               15 --> 6th level
-   */
 
-private static void  traverseRightSubTree(Node current , int level, List<Integer> map){
-   
-   //map.add(current.data);
-   int levelRight = 1;
+private static void  traverseRightSubTree(Node current , int levelRight, Map<Integer, Integer> map){
+    // loop through the elements till the level thats not in SET is achieved
+    int sameLevel = 0;
+    while(set.contains(map.get(current.data))){
+         //current = q.remove();
+         if(current.left!=null && current.right!=null){
+            sameLevel = ++levelRight;
+            q.add(current.left);
+            q.add(current.right);
+            map.put(current.left.data,sameLevel);
+            map.put(current.right.data,sameLevel);
+         } else if(current.left!=null){
+            q.add(current.left);
+            sameLevel = ++levelRight;
+            map.put(current.left.data,sameLevel);
+         } else  if(current.right!=null){
+            q.add(current.right);
+            sameLevel = ++levelRight;
+            map.put(current.right.data,sameLevel);
 
-   q.add(current.right);
-   
-   while(!q.isEmpty()){
-      current = q.remove();
-      /*if(current.left == null && current.right == null){
-         return;
-      }*/
-      
-      if(current.left != null ){
-         q.add(current.left);
-      }
-      if(current.right != null){
-         q.add(current.right);
-      }
-      levelRight ++;
-
-   }
-
-   if(levelRight > level) { // We need to continue printing elements from this level
-      while(!q.isEmpty()){
-         current = q.remove(); // new current from the needed level
-         if(current.left == null && current.right == null){
-            map.add(current.data);
          }
-      }
-   }
-   
-      //traverseRightSubTree(q.remove(), level, map);
-   }
+         if(!q.isEmpty()){
+            current = q.remove();
+         } else{
+            break;
+         }
+    }
+
+    if(!set.contains(map.get(current.data))){
+         result.add(current.data);
+    }
+ }
 
 }
 
